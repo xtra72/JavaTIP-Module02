@@ -11,6 +11,11 @@ public class Region extends Rectangle {
         super((int) x, (int) y, (int) width, (int) height);
     }
 
+    public void move(Motion motion) {
+        x += motion.getDX();
+        y += motion.getDY();
+    }
+
     public boolean isCollision(Region region) {
         return  intersects(region);
     }

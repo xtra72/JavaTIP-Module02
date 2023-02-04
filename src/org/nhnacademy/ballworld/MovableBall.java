@@ -3,8 +3,7 @@ package org.nhnacademy.ballworld;
 import java.awt.Color;
 
 public class MovableBall extends Ball {
-    double distance;
-    double angle;
+    Motion motion;
 
     public MovableBall(Point location, double radius, Color color) {
         super(location, radius, color);
@@ -14,24 +13,19 @@ public class MovableBall extends Ball {
         super(location, radius);
     }
 
-    public void setMotion(double distance, double angle) {
-        this.distance = distance;
-        this.angle = angle;
+    public void setMotion(Motion motion) {
+        this.motion = motion;
     }
 
     public void move() {
-        double radins = Math.toRadians(angle);
-        double dx = distance * Math.cos(radins);
-        double dy = distance * Math.sin(radins);
-
-        location.move(dx, dy);
+        location.move(this.motion.getDX(), this.motion.getDY());
     }
 
     public void turnX() {
-        angle = 180 - angle;
+        motion.turnX();
     }
 
     public void turnY() {
-        angle = -angle;
+        motion.turnY();
     }
 }

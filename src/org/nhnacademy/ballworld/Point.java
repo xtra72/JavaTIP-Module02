@@ -21,4 +21,9 @@ public class Point {
         x += dx;
         y += dy;
     }
+
+    public void move(Motion motion) {
+        x += motion.getDX();
+        y += motion.getDY();
+    }
 }
