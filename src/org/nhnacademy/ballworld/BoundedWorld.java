@@ -23,13 +23,13 @@ public class BoundedWorld extends MovableBallWorld {
 
                 movableBall.move();
 
-                if ((movableBall.getLocation().getX() < movableBall.getRadius() * 2)
-                        || (getWidth() - movableBall.getRadius() * 2 < movableBall.getLocation().getX())) {
+                if ((movableBall.getLocation().getX() < movableBall.getRadius())
+                        || (getWidth() - movableBall.getRadius() < movableBall.getLocation().getX())) {
                     movableBall.turnX();
                 }
 
-                if ((movableBall.getLocation().getY() < movableBall.getRadius() * 2)
-                        || (getHeight() - movableBall.getRadius() * 2 < movableBall.getLocation().getY())) {
+                if ((movableBall.getLocation().getY() < movableBall.getRadius())
+                        || (getHeight() - movableBall.getRadius() < movableBall.getLocation().getY())) {
                     movableBall.turnY();
                 }
             }
