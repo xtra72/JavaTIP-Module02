@@ -177,16 +177,16 @@ public class Motion {
      */
     protected void updateDXDY() {
         double radian = Math.toRadians(angle);
-        this.dx = velocity * Math.cos(radian);
-        this.dy = velocity * Math.sin(radian);
+        dx = velocity * Math.cos(radian);
+        dy = velocity * Math.sin(radian);
     }
 
     /**
      * X축과 Y축 이동량 변경시 호출하여 속도와 각도를 변경한다.
      */
     protected void updatevelocityAndAngle() {
-        this.velocity = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
-        this.angle = Math.toDegrees(Math.asin(dy / this.velocity));
+        velocity = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+        angle = Math.toDegrees(Math.asin(dy / velocity));
 
     }
 

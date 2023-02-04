@@ -26,4 +26,9 @@ public class Point {
         x += motion.getDX();
         y += motion.getDY();
     }
+
+    public void moveTo(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
 }
