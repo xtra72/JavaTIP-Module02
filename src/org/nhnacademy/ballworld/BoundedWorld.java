@@ -1,20 +1,43 @@
 package org.nhnacademy.ballworld;
 
 public class BoundedWorld extends MovableBallWorld {
-    Region area;
-
-    public BoundedWorld(int width, int height) {
-        super(width, height);
-    }
+    /**
+     * 왼쪽 벽
+     */
+    Region leftWall;
 
     /**
-     * BoundedWorld의 영역 반환.
-     * @return
+     * 오른쪽 벽
      */
-    public Region getRegion() {
-        return  new Region(0, 0, getWidth(), getHeight());
+    Region rightWall;
+
+    /**
+     * 위쪽 벽
+     */
+    Region topWall;
+
+    /**
+     * 아래쪽 벽
+     */
+    Region bottomWall;
+
+    /**
+     * 영역 설정시 영역 외곽에 벽을 생성한다.
+     * @param width
+     * @param height
+     */
+    public BoundedWorld(int width, int height) {
+        super(width, height);
+        leftWall = new Region(-width - 1.0, 0, width, height);
+        rightWall = new Region(width + 1.0, 0, width, height);
+        topWall = new Region(0, height + 1.0, width, height);
+        bottomWall = new Region(0, -height - 1.0, width, height);
     }
 
+
+    /**
+     * Ball중에서 MovableBall을 찾아 이동 시킨 후 벽에 부딫혔는지 확인 후 방향 전황.
+     */
     @Override
     public void next() {
         for(Ball ball : balls) {
@@ -23,13 +46,11 @@ public class BoundedWorld extends MovableBallWorld {
 
                 movableBall.move();
 
-                if ((movableBall.getLocation().getX() < movableBall.getRadius())
-                        || (getWidth() - movableBall.getRadius() < movableBall.getLocation().getX())) {
+                if (leftWall.isCollision(movableBall.getRegion()) || rightWall.isCollision(movableBall.getRegion())) {
                     movableBall.turnX();
                 }
 
-                if ((movableBall.getLocation().getY() < movableBall.getRadius())
-                        || (getHeight() - movableBall.getRadius() < movableBall.getLocation().getY())) {
+                if (topWall.isCollision(movableBall.getRegion()) || bottomWall.isCollision(movableBall.getRegion())) {
                     movableBall.turnY();
                 }
             }
