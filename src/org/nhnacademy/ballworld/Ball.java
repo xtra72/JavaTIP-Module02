@@ -7,15 +7,18 @@ public class Ball {
     Point   location;
     double  radius;
     Color   color;
+    int     height;
 
-    public Ball(Point location, double radius, Color color) {
+    public Ball(Point location, double radius, Color color, int height) {
         this.location = location;
         this.radius = radius;
         this.color = color;
+        this.height = height;
     }
 
-    public Ball(Point locPoint, double raduis) {
+    public Ball(Point locPoint, double raduis, int height) {
         this(locPoint, raduis, Color.BLACK);
+        this.height = height;
     }
 
     public Point getLocation() {
@@ -42,7 +45,7 @@ public class Ball {
         Color oldColor = graphics.getColor();
 
         graphics.setColor(color);
-        graphics.fillOval((int) (location.getX() - radius), (int) (location.getY() - radius), (int) (2 * radius), (int) (2 * radius));
+        graphics.fillOval((int) (location.getX() - radius), (int) ((height - location.getY()) - radius), (int) (2 * radius), (int) (2 * radius));
 
         graphics.setColor(oldColor);
     }

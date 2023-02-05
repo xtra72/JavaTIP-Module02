@@ -6,14 +6,14 @@ public class MovableBall extends Ball {
     Motion motion;
     Motion acceleration;
 
-    public MovableBall(Point location, double radius, Color color) {
-        super(location, radius, color);
+    public MovableBall(Point location, double radius, Color color, int height) {
+        super(location, radius, color, height);
         motion = new Motion();
         acceleration = new Motion();
     }
 
-    public MovableBall(Point location, double radius) {
-        super(location, radius);
+    public MovableBall(Point location, double radius, int height) {
+        super(location, radius, height);
         motion = new Motion();
         acceleration = new Motion();
     }
