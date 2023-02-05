@@ -27,9 +27,12 @@ public class BallWorldView extends Frame {
 
     protected void draw(Graphics graphics, Ball ball) {
         graphics.setColor(ball.getColor());
-        graphics.fillOval((int) (ball.getLocation().getX() - ball.getRadius()),
-                translateY((int) (ball.getLocation().getY() + ball.getRadius())),
-                (int) (2 * ball.getRadius()), (int) (2 * ball.getRadius()));
+        // graphics.fillOval((int) (ball.getLocation().getX() - ball.getRadius()),
+        //         translateY((int) (ball.getLocation().getY() + ball.getRadius())),
+        //         (int) (2 * ball.getRadius()), (int) (2 * ball.getRadius()));
+        graphics.fillRect((int) (ball.getLocation().getX() - ball.getRadius()),
+                 translateY((int) (ball.getLocation().getY() + ball.getRadius())),
+                 (int) (2 * ball.getRadius()), (int) (2 * ball.getRadius()));
     }
 
     @Override
