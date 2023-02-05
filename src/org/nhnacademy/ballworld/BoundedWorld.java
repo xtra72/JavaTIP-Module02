@@ -6,12 +6,12 @@ public class BoundedWorld extends MovableBallWorld {
     Region topWall;
     Region bottomWall;
 
-    public BoundedWorld(int width, int height) {
-        super(width, height);
-        leftWall = new Region(-width - 1.0, 0, width, height);
-        rightWall = new Region(width + 1.0, 0, width, height);
-        topWall = new Region(0, height + 1.0, width, height);
-        bottomWall = new Region(0, -height - 1.0, width, height);
+    public BoundedWorld(BallWorldView view) {
+        super(view);
+        leftWall = new Region(-view.getWidth() - 1.0, 0, view.getWidth(), view.getHeight());
+        rightWall = new Region(view.getWidth() + 1.0, 0, view.getWidth(), view.getHeight());
+        topWall = new Region(0, view.getHeight() + 1.0, view.getWidth(), view.getHeight());
+        bottomWall = new Region(0, -view.getHeight() - 1.0, view.getWidth(), view.getHeight());
     }
 
 

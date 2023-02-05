@@ -1,34 +1,33 @@
 package org.nhnacademy.ballworld;
 
-import java.awt.Frame;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
-import java.awt.Graphics;
 
-public class BallWorld extends Frame {
+public class BallWorld {
     Logger logger;
     List<Ball>  balls;
+    BallWorldView view;
 
-    public BallWorld(int width, int height) {
+    public BallWorld(BallWorldView view) {
         super();
 
         logger = Logger.getLogger("global");
         balls = new LinkedList<>();
-
-        setSize(width, height);
+        this.view = view;
+        this.view.addDrawListener(this);
     }
 
     public void add(Ball ball) {
         balls.add(ball);
     }
 
-    @Override
-    public void paint(Graphics graphics) {
-        super.paint(graphics);
+    public List<Ball> getBalls() {
+        return      balls;
+    }
 
-        for(Ball ball : balls) {
-            ball.draw(graphics);
-        }
+    public void run(long seconds) throws InterruptedException {
+        view.setVisible(true);
+        Thread.sleep(seconds * 1000);
     }
 }

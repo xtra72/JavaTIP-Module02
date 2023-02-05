@@ -1,7 +1,6 @@
 package org.nhnacademy.ballworld;
 
 import java.awt.Color;
-import java.awt.Graphics;
 
 public class Ball {
     Point   location;
@@ -36,14 +35,5 @@ public class Ball {
 
     public Region getRegion() {
         return  new Region(location.x - radius, location.y - radius, 2 * radius, 2 * radius);
-    }
-
-    public void draw(Graphics graphics) {
-        Color oldColor = graphics.getColor();
-
-        graphics.setColor(color);
-        graphics.fillOval((int) (location.getX() - radius), (int) (location.getY() - radius), (int) (2 * radius), (int) (2 * radius));
-
-        graphics.setColor(oldColor);
     }
 }

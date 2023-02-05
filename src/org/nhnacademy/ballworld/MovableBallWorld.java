@@ -3,8 +3,8 @@ package org.nhnacademy.ballworld;
 public class MovableBallWorld extends BallWorld {
     long interval;
 
-    public MovableBallWorld(int width, int height) {
-        super(width, height);
+    public MovableBallWorld(BallWorldView view) {
+        super(view);
         interval = 100;
     }
 
@@ -24,11 +24,14 @@ public class MovableBallWorld extends BallWorld {
         }
     }
 
+    @Override
     public void run(long seconds) throws InterruptedException {
+        view.setVisible(true);
+
         long startTime = System.currentTimeMillis();
         while (System.currentTimeMillis() < startTime + seconds * 1000) {
             next();
-            repaint();
+            view.repaint();
             Thread.sleep(interval);
         }
     }
