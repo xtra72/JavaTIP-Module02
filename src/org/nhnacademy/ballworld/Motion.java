@@ -172,6 +172,11 @@ public class Motion {
         updatevelocityAndAngle();
     }
 
+    public void add(Motion motion) {
+        dx += motion.getDX();
+        dy += motion.getDY();
+        updatevelocityAndAngle();
+    }
     /**
      * 속도 또는 각도가 변경된 경우, X축과 Y축의 이동량을 변경한다.
      */

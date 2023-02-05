@@ -17,6 +17,7 @@ public class BallWorld extends Frame {
         balls = new LinkedList<>();
 
         setSize(width, height);
+        setVisible(true);
     }
 
     public void add(Ball ball) {

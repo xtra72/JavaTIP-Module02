@@ -11,11 +11,14 @@ public class TestBoundedBallWorld {
         BoundedWorld ballWorld = new BoundedWorld(500, 400);
 
         CannonBall ball = new CannonBall(new Point( 20, 20), 20.0, Color.BLUE);
-        ball.setMotion(new Motion(20, 45));
-        ball.setGravity(9.8 / 10);
+        Motion motion = new Motion();
+        motion.setDXDY(15, 15);
+        ball.setMotion(motion);
+        Motion gravity = new Motion();
+        gravity.setDXDY(0, -9.8 / 10);
+        ball.setAcceleration(gravity);
         ballWorld.add(ball);
         ballWorld.setInterval(100);
-        ballWorld.setVisible(true);
         ballWorld.run(1000);
     }
 }
