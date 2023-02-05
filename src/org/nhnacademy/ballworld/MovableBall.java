@@ -5,12 +5,12 @@ import java.awt.Color;
 public class MovableBall extends Ball {
     Motion motion;
 
-    public MovableBall(Point location, double radius, Color color) {
-        super(location, radius, color);
+    public MovableBall(Point location, double radius, Color color, int height) {
+        super(location, radius, color, height);
     }
 
-    public MovableBall(Point location, double radius) {
-        super(location, radius);
+    public MovableBall(Point location, double radius, int height) {
+        super(location, radius, height);
     }
 
     public void setMotion(Motion motion) {

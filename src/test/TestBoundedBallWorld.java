@@ -10,7 +10,7 @@ public class TestBoundedBallWorld {
     public static void main(String[] args) throws InterruptedException {
         BoundedWorld ballWorld = new BoundedWorld(500, 400);
 
-        CannonBall ball = new CannonBall(new Point( 20, 20), 20.0, Color.BLUE);
+        CannonBall ball = new CannonBall(new Point( 20, 20), 20.0, Color.BLUE, ballWorld.getHeight());
         ball.setMotion(new Motion(20, 45));
         ball.setGravity(9.8 / 10);
         ballWorld.add(ball);
