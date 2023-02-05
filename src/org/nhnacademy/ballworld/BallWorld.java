@@ -1,15 +1,31 @@
 package org.nhnacademy.ballworld;
 
 import java.awt.Frame;
+import java.awt.Graphics;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
-import java.awt.Graphics;
 
+/**
+ * BallWorld class.
+ */
 public class BallWorld extends Frame {
+    /**
+     * 로거.
+     */
     Logger logger;
+
+    /**
+     * 볼 리스트.
+     */
     List<Ball>  balls;
 
+    /**
+     * 생성자.
+     *
+     * @param width 폭
+     * @param height 높이
+     */
     public BallWorld(int width, int height) {
         super();
 
@@ -27,7 +43,7 @@ public class BallWorld extends Frame {
     public void paint(Graphics graphics) {
         super.paint(graphics);
 
-        for(Ball ball : balls) {
+        for (Ball ball : balls) {
             ball.draw(graphics);
         }
     }

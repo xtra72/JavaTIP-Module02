@@ -3,5 +3,7 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
-    ]
+    ],
+    "java.checkstyle.configuration": "/Users/nhn/Documents/교육 과정/Java TIP/google_checks.xml",
+    "java.checkstyle.version": "10.7.0"
 }
