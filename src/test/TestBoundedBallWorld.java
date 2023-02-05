@@ -15,7 +15,9 @@ public class TestBoundedBallWorld {
         Motion motion = new Motion();
         motion.setDXDY(15, 15);
         ball.setMotion(motion);
-        ball.setGravity(9.8 / 10);
+        Motion gravity = new Motion();
+        gravity.setDXDY(0, -9.8 / 10);
+        ball.setAcceleration(gravity);
         ballWorld.add(ball);
         ballWorld.setInterval(100);
         ballWorld.run(1000);

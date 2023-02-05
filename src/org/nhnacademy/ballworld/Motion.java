@@ -173,6 +173,16 @@ public class Motion {
     }
 
     /**
+     *
+     * @param acceleration
+     */
+    public void add(Motion acceleration) {
+        dx += acceleration.getDX();
+        dy += acceleration.getDY();
+        updatevelocityAndAngle();
+    }
+
+    /**
      * 속도 또는 각도가 변경된 경우, X축과 Y축의 이동량을 변경한다.
      */
     protected void updateDXDY() {
