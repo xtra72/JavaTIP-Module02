@@ -9,7 +9,9 @@ import java.awt.Color;
 
 public class TestBoundedBallWorld {
     public static void main(String[] args) throws InterruptedException {
-        BoundedWorld ballWorld = new BoundedWorld(new BallWorldView(500, 400));
+        BallWorldView view = new BallWorldView(500, 400);
+        view.setVirtualSize(1000, 800);
+        BoundedWorld ballWorld = new BoundedWorld(view);
 
         CannonBall ball = new CannonBall(new Point( 20, 20), 20.0, Color.BLUE);
         Motion motion = new Motion();

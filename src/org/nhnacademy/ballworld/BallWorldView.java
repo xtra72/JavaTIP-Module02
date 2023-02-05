@@ -8,17 +8,26 @@ import java.awt.Graphics;
 public class BallWorldView extends Frame {
     Logger logger;
     BallWorld controller;
+    int virtualWidth;
+    int virtualHeight;
 
     public BallWorldView(int width, int height) {
         super();
 
         logger = Logger.getLogger("global");
         setSize(width, height);
+        virtualWidth = width;
+        virtualHeight = height;
     }
 
 
     public void addDrawListener(BallWorld controller) {
         this.controller = controller;
+    }
+
+    public void setVirtualSize(int width, int height) {
+        virtualWidth = width;
+        virtualHeight = height;
     }
 
     public int translateY(int y) {
@@ -27,9 +36,12 @@ public class BallWorldView extends Frame {
 
     protected void draw(Graphics graphics, Ball ball) {
         graphics.setColor(ball.getColor());
-        graphics.fillOval((int) (ball.getLocation().getX() - ball.getRadius()),
-                translateY((int) (ball.getLocation().getY() + ball.getRadius())),
-                (int) (2 * ball.getRadius()), (int) (2 * ball.getRadius()));
+        double x = (ball.getLocation().getX() - ball.getRadius()) / (double)virtualWidth * (double)getWidth();
+        double y = translateY((int)(ball.getLocation().getY() + ball.getRadius())) / (double)virtualHeight * getHeight();
+
+        graphics.fillOval((int)x, (int)y,
+                (int) (2 * ball.getRadius() / virtualWidth * getWidth() ),
+                (int) (2 * ball.getRadius() / virtualHeight * getHeight() ));
     }
 
     @Override
