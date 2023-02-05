@@ -24,7 +24,7 @@ public class MovableBall extends Ball {
         this.acceleration = acceleration;
     }
 
-    public void addtAcceleration(Motion acceleration) {
+    public void addAcceleration(Motion acceleration) {
         this.acceleration.add(acceleration);
     }
 
