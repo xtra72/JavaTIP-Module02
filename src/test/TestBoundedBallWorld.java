@@ -10,12 +10,12 @@ import java.awt.Color;
 public class TestBoundedBallWorld {
     public static void main(String[] args) throws InterruptedException {
         BallWorldView view = new BallWorldView(500, 400);
-        view.setVirtualSize(1000, 800);
+        view.setVirtualSize(2000, 1600);
         BoundedWorld ballWorld = new BoundedWorld(view);
 
         CannonBall ball = new CannonBall(new Point( 20, 20), 20.0, Color.BLUE);
         Motion motion = new Motion();
-        motion.setDXDY(15, 15);
+        motion.setDXDY(15, 25);
         ball.setMotion(motion);
         Motion gravity = new Motion();
         gravity.setDXDY(0, -9.8 / 10);

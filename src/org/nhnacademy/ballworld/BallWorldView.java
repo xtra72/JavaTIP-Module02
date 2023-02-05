@@ -21,6 +21,14 @@ public class BallWorldView extends Frame {
     }
 
 
+    public int getVirtualWidth() {
+        return  virtualWidth;
+    }
+
+    public int getVirtualHeight() {
+        return  virtualHeight;
+    }
+
     public void addDrawListener(BallWorld controller) {
         this.controller = controller;
     }
@@ -30,18 +38,26 @@ public class BallWorldView extends Frame {
         virtualHeight = height;
     }
 
-    public int translateY(int y) {
-        return  getHeight() - y;
+    public double translateX(double x) {
+        return  x / virtualWidth * getWidth();
+    }
+
+    public double translateY(double y) {
+        return  (virtualHeight - y) / virtualHeight * getHeight();
+    }
+
+    public Point translateX(Point point) {
+        return  new Point(point.getX(), translateY(point.getY()));
     }
 
     protected void draw(Graphics graphics, Ball ball) {
         graphics.setColor(ball.getColor());
-        double x = (ball.getLocation().getX() - ball.getRadius()) / (double)virtualWidth * (double)getWidth();
-        double y = translateY((int)(ball.getLocation().getY() + ball.getRadius())) / (double)virtualHeight * getHeight();
+        double x1 = translateX(ball.getLocation().getX() - ball.getRadius());
+        double y1 = translateY((int)(ball.getLocation().getY() + ball.getRadius()));
+        double x2 = translateX(ball.getLocation().getX() + ball.getRadius());
+        double y2 = translateY((int)(ball.getLocation().getY() - ball.getRadius()));
 
-        graphics.fillOval((int)x, (int)y,
-                (int) (2 * ball.getRadius() / virtualWidth * getWidth() ),
-                (int) (2 * ball.getRadius() / virtualHeight * getHeight() ));
+        graphics.fillOval((int)x1, (int)y1, (int)(x2 - x1), (int)(y2 - y1));
     }
 
     @Override

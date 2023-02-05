@@ -8,10 +8,10 @@ public class BoundedWorld extends MovableBallWorld {
 
     public BoundedWorld(BallWorldView view) {
         super(view);
-        leftWall = new Region(-view.getWidth() - 1.0, 0, view.getWidth(), view.getHeight());
-        rightWall = new Region(view.getWidth() + 1.0, 0, view.getWidth(), view.getHeight());
-        topWall = new Region(0, view.getHeight() + 1.0, view.getWidth(), view.getHeight());
-        bottomWall = new Region(0, -view.getHeight() - 1.0, view.getWidth(), view.getHeight());
+        leftWall = new Region(-view.getVirtualWidth() - 1.0, 0, view.getVirtualWidth(), view.getVirtualHeight());
+        rightWall = new Region(view.getVirtualWidth() + 1.0, 0, view.getVirtualWidth(), view.getVirtualHeight());
+        topWall = new Region(0, view.getVirtualHeight() + 1.0, view.getVirtualWidth(), view.getVirtualHeight());
+        bottomWall = new Region(0, -view.getVirtualHeight() - 1.0, view.getVirtualWidth(), view.getVirtualHeight());
     }
 
 
