@@ -101,7 +101,7 @@ public class Motion {
     public void setDXDY(double dx, double dy) {
         this.dx = dx;
         this.dy = dy;
-        updatevelocityAndAngle();
+        updateVelocityAndAngle();
     }
 
     public double getDX() {
@@ -116,7 +116,7 @@ public class Motion {
      */
     public void setDX(double dx) {
         this.dx = dx;
-        updatevelocityAndAngle();
+        updateVelocityAndAngle();
     }
 
     /**
@@ -127,7 +127,7 @@ public class Motion {
      */
     public void addDX(double dx) {
         this.dx += dx;
-        updatevelocityAndAngle();
+        updateVelocityAndAngle();
     }
 
     /**
@@ -135,7 +135,7 @@ public class Motion {
      */
     public void turnX() {
         dx = -dx;
-        updatevelocityAndAngle();
+        updateVelocityAndAngle();
     }
 
     public double getDY() {
@@ -150,7 +150,7 @@ public class Motion {
      */
     public void setDY(double dy) {
         this.dy = dy;
-        updatevelocityAndAngle();
+        updateVelocityAndAngle();
     }
 
     /**
@@ -161,7 +161,7 @@ public class Motion {
      */
     public void addDY(double dy) {
         this.dy += dy;
-        updatevelocityAndAngle();
+        updateVelocityAndAngle();
     }
 
     /**
@@ -169,7 +169,7 @@ public class Motion {
      */
     public void turnY() {
         dy = -dy;
-        updatevelocityAndAngle();
+        updateVelocityAndAngle();
     }
 
     /**
@@ -184,7 +184,7 @@ public class Motion {
     /**
      * X축과 Y축 이동량 변경시 호출하여 속도와 각도를 변경한다.
      */
-    protected void updatevelocityAndAngle() {
+    protected void updateVelocityAndAngle() {
         this.velocity = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
         this.angle = Math.toDegrees(Math.asin(dy / this.velocity));
 
